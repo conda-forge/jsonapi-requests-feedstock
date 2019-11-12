@@ -10,16 +10,17 @@ source:
 
 build:
   number: 0
+  skip: True  # [py2k]
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
-    - python >=3
+    - python
     - pip
     - pytest-runner
   run:
-    - python >=3
+    - python
     - requests
     - tenacity
 
