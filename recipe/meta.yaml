@@ -13,24 +13,28 @@ source:
 
 build:
   number: 0
-  skip: true  # [py27]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  noarch: python
+  script: {{ PYTHON }} -m pip install --no-deps .
 
 requirements:
-  build:
-    - python
+  host:
+    - python >=3
     - pip
     - pytest-runner
     - setuptools
   run:
-    - python
+    - python >=3
     - requests
     - tenacity
 
 test:
+  requires:
+    - pip
   imports:
     - jsonapi_requests
     - jsonapi_requests.orm
+  commands:
+    - pip check
 
 about:
   home: https://github.com/socialwifi/jsonapi-requests
