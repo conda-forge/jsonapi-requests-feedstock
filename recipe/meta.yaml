@@ -7,21 +7,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jsonapi-requests-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jsonapi-requests-{{ version }}.tar.gz
   sha256: ce83161f0e1d5007ec55a4083563f5e726e052e382fd05c42e6c0115bd9dc650
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3
+    - python {{ python_min }}
     - pip
     - pytest-runner
   run:
-    - python >=3
+    - python >={{ python_min }}
     - requests
     - tenacity
 
@@ -33,6 +33,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/socialwifi/jsonapi-requests
