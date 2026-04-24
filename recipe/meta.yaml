@@ -1,5 +1,5 @@
 {% set name = "jsonapi-requests" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jsonapi-requests-{{ version }}.tar.gz
-  sha256: ce83161f0e1d5007ec55a4083563f5e726e052e382fd05c42e6c0115bd9dc650
+  sha256: fe09b53372fdc7ee183aafb98baac04c4b7c81c1def1f6725596f16c8af0bd92
 
 build:
   number: 0
